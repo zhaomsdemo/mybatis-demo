@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhaomsdemo.research.mybatisdemo.repository.UserMapper">
+    <select id="findUserById" resultType="UserModel" parameterType="String">
+        select
+            id,
+            created_date as createdDate,
+            created_user as createdUser,
+            modified_date as modifiedDate,
+            modified_user as modifiedUser,
+            birthday,
+            email,
+            gender,
+            "name",
+            phone
+        from
+            public.t_user
+        <where>
+            id = #{id}
+        </where>
+    </select>
+
+</mapper>
